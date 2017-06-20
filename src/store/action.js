@@ -1,11 +1,11 @@
 /**
  * Created by syw on 2017/6/19.
  */
-import ajax from './config/ajax';
+import ajax from '../config/ajax';
 export default{
   addNum({commit,state},id){
      commit("REMBER_ANSWER",{ id })
-     if(state.itemNum) < state.itemDetail.length){
+     if(state.itemNum < state.itemDetail.length){
           commit('ADD_ITEMNUM',{
             num:1
           })

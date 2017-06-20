@@ -1,15 +1,24 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import App from '../App'
+export default
+ [
+   {
+     path: '/',
+     component: App,
+     children: [
+       {
+         path: '',
+         component: r => require.ensure([], () => r(require('../page/home')), 'home')
+       },
+       {
+         path: '/item',
+         component: r => require.ensure([], () => r(require('../page/item')), 'item')
+       },
+       {
+         path: '/score',
+         component: r => require.ensure([], () => r(require('../page/score')), 'score')
+       }
+     ]
 
-Vue.use(Router)
+   }
+   ]
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
-})
